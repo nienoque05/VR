@@ -1,0 +1,173 @@
+<html>
+  <head>
+     <title> VR</title>
+     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+     <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+  </head>
+  
+  <body>
+    <a-scene>
+      <a-assets>
+        <!-- Renders 360 -->
+        <img id="render_sala" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fsala%20de%20estar.jpg?v=1583773823937">
+        <img id="render_cozinha" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fcozinha.jpg?v=1583773816268">
+        <img id="render_quarto_principal" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fquarto%20principal.jpg?v=1583773817665">
+        <img id="render_quarto_hospede" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fquarto%20de%20hospedes.jpg?v=1583773816174">
+        <img id="render_banheiro" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fbanheiro.jpg?v=1583773782344">
+        
+        <!-- botoes -->
+        <img id="icone_btn_sala" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fsala.png?v=1583773910574">
+        <img id="icone_btn_cozinha" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fcozinha.png?v=1583773909693">
+        <img id="icone_btn_quarto_principal" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fquarto%20principal.png?v=1583773910356">
+        <img id="icone_btn_quarto_hospede" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fquarto%20de%20hospedes.png?v=1583773911018">
+        <img id="icone_btn_banheiro" src="https://cdn.glitch.com/5f542539-ef03-4de1-b6f3-96b9b6af27cb%2Fbanheiro.png?v=1583773908971">
+      </a-assets>
+      
+      <a-camera>
+        <a-cursor id="cursor"
+                  animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                  animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                  animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                  cursor="fuse: true;"
+                  material="color: black; shader: flat"
+                  position="0 0 -3"
+                  geometry="primitive: ring">
+        </a-cursor>
+      </a-camera>
+      
+      <a-plane id="btn_sala" src="#icone_btn_sala" position="1 2 -3" width="0.75" height="0.25"
+               
+               event-set__expandir="_event: mouseenter;
+                                   animation.property: scale;
+                                   animation.from: 1 1 1;
+                                   animation.to: 1.2 1.2 1.2;
+                                   animation.dur: 150;"
+               
+               event-set__diminuir="_event: mouseleave;
+                                   animation.property: scale;
+                                   animation.from: 1.2 1.2 1.2;
+                                   animation.to: 1 1 1;
+                                   animation.dur: 150;"
+               
+               event-set__mouseenter="_event: mouseenter;
+                                      _target: #cursor;
+                                      color: red;"
+               
+               event-set__mouseleave="_event: mouseleave;
+                                      _target: #cursor;
+                                      color: black;"
+               
+               event-set__render="_event: click;
+                                  _target: #renders;
+                                  src: #render_sala;"></a-plane>
+      
+      <a-plane id="btn_cozinha" src="#icone_btn_cozinha" position="1 1.6 -3" width="0.75" height="0.25"
+               
+               event-set__expandir="_event: mouseenter;
+                                   animation.property: scale;
+                                   animation.from: 1 1 1;
+                                   animation.to: 1.2 1.2 1.2;
+                                   animation.dur: 150;"
+               
+               event-set__diminuir="_event: mouseleave;
+                                   animation.property: scale;
+                                   animation.from: 1.2 1.2 1.2;
+                                   animation.to: 1 1 1;
+                                   animation.dur: 150;"
+               
+               event-set__mouseenter="_event: mouseenter;
+                                      _target: #cursor;
+                                      color: red;"
+               
+               event-set__mouseleave="_event: mouseleave;
+                                      _target: #cursor;
+                                      color: black;"
+               
+               event-set__render="_event: click;
+                                  _target: #renders;
+                                  src: #render_cozinha;"></a-plane>
+      
+      <a-plane id="btn_quarto_principal" src="#icone_btn_quarto_principal" position="1 1.2 -3" width="0.75" height="0.25"
+               
+               event-set__expandir="_event: mouseenter;
+                                   animation.property: scale;
+                                   animation.from: 1 1 1;
+                                   animation.to: 1.2 1.2 1.2;
+                                   animation.dur: 150;"
+               
+               event-set__diminuir="_event: mouseleave;
+                                   animation.property: scale;
+                                   animation.from: 1.2 1.2 1.2;
+                                   animation.to: 1 1 1;
+                                   animation.dur: 150;"
+               
+               event-set__mouseenter="_event: mouseenter;
+                                      _target: #cursor;
+                                      color: red;"
+               
+               event-set__mouseleave="_event: mouseleave;
+                                      _target: #cursor;
+                                      color: black;"
+               
+               event-set__render="_event: click;
+                                  _target: #renders;
+                                  src: #render_quarto_principal;"></a-plane>
+      
+      <a-plane id="btn_quarto_hospede" src="#icone_btn_quarto_hospede" position="1 0.8 -3" width="0.75" height="0.25"
+               
+               event-set__expandir="_event: mouseenter;
+                                   animation.property: scale;
+                                   animation.from: 1 1 1;
+                                   animation.to: 1.2 1.2 1.2;
+                                   animation.dur: 150;"
+               
+               event-set__diminuir="_event: mouseleave;
+                                   animation.property: scale;
+                                   animation.from: 1.2 1.2 1.2;
+                                   animation.to: 1 1 1;
+                                   animation.dur: 150;"
+               
+               event-set__mouseenter="_event: mouseenter;
+                                      _target: #cursor;
+                                      color: red;"
+               
+               event-set__mouseleave="_event: mouseleave;
+                                      _target: #cursor;
+                                      color: black;"
+               
+               event-set__render="_event: click;
+                                  _target: #renders;
+                                  src: #render_quarto_hospede;"></a-plane>
+      
+      <a-plane id="btn_banheiro" src="#icone_btn_banheiro" position="1 0.4 -3" width="0.75" height="0.25"
+               
+               event-set__expandir="_event: mouseenter;
+                                   animation.property: scale;
+                                   animation.from: 1 1 1;
+                                   animation.to: 1.2 1.2 1.2;
+                                   animation.dur: 150;"
+               
+               event-set__diminuir="_event: mouseleave;
+                                   animation.property: scale;
+                                   animation.from: 1.2 1.2 1.2;
+                                   animation.to: 1 1 1;
+                                   animation.dur: 150;"
+               
+               event-set__mouseenter="_event: mouseenter;
+                                      _target: #cursor;
+                                      color: red;"
+               
+               event-set__mouseleave="_event: mouseleave;
+                                      _target: #cursor;
+                                      color: black;"
+               
+               event-set__render="_event: click;
+                                  _target: #renders;
+                                  src: #render_banheiro;"></a-plane>
+      
+      <a-sky id="renders" src="#render_sala" ></a-sky>
+      
+    </a-scene>
+  </body>
+  
+</html>
